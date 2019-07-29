@@ -1,0 +1,17 @@
+lex gera_listas.lex
+yacc gera_listas.y
+g++ -o gl y.tab.c -ll
+./gl <entrada.cc>codigo.cc
+g++ -std=c++17 main_programa_gerado.cc codigo.cc -o programa_gerado
+./programa_gerado
+
+  |   { $$.v = geraNomeVar(); $$.c = geraNo2($$.v, $2.v) +"\n" + $2.c
+                       + "  " + $$.v + "->proximo = " + $2.v + ";\n\n";}
+					   
+					   .v = geraNomeVar(); $$.c = geraNo2( $$.v, $2.v ); + 
+					   
+					   '(' L ')' {$$.v = geraNomeVar();  $$.c = geraNo2()} + "\n" + $2.c  
+				+ "  " + $$.v + "->proximo = " + $2.v;}
+
+
+  
